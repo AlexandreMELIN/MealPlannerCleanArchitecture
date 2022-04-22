@@ -23,7 +23,7 @@ class SearchRecipeUseCaseTest implements SearchRecipePresenter, RecipeSearch {
   public List<Recipe> searchBy(RecipeSearchCriteria criteria) {
     var recipe =
         new Recipe(
-            "chocolat",
+            "chocolate",
             List.of(new Step(0, "Mettre du chocolat")),
             1,
             MealType.SNACK,
@@ -31,7 +31,7 @@ class SearchRecipeUseCaseTest implements SearchRecipePresenter, RecipeSearch {
                 new IngredientDetail(
                     new Ingredient("chocolat", IngredientType.CONFECTIONERY, null),
                     1.0,
-                    new Unit("g", "gramme"))));
+                    Unit.GRAM)));
     return List.of(recipe);
   }
 
@@ -46,7 +46,7 @@ class SearchRecipeUseCaseTest implements SearchRecipePresenter, RecipeSearch {
     searchRecipeUseCase.execute(
         new SearchRecipeRequest(new RecipeSearchCriteria("chocolate", null, null)), this);
 
-    assertThat(this.recipe.name(), equalTo("chocolat"));
+    assertThat(this.recipe.name(), equalTo("chocolate"));
     assertThat(this.recipe.steps().size(), equalTo(1));
     assertThat(this.recipe.type(), equalTo(MealType.SNACK));
     assertThat(this.recipe.ingredientDetails().size(), equalTo(1));

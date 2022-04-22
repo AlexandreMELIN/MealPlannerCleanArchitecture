@@ -8,5 +8,5 @@ public enum IngredientType {
     OIL,
     CONDIMENT,
     SPICE,
-    CONFECTIONERY
+    FOOD_STAPLE, CONFECTIONERY
 }

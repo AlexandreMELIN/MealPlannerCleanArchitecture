@@ -39,7 +39,7 @@ class AddRecipeUseCaseTest implements AddRecipePresenter, RecipeCreate {
     @Test
     void shouldCreateARecipe() {
         var ingredientWater = new Ingredient("Eau", IngredientType.DRINK, new ArrayList<>());
-        var ingredientWaterDetail = new IngredientDetail(ingredientWater, 30.0, new Unit("Centilitres", "cL"));
+        var ingredientWaterDetail = new IngredientDetail(ingredientWater, 0.3, Unit.LITER);
 
         var useCase = new AddRecipeUseCase(this);
         var request = new AddRecipeRequest(

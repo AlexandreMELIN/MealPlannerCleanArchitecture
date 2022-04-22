@@ -1,4 +1,7 @@
 package recipe.usecase.getAll;
 
-public class GetAllRecipeResponse {
+import java.util.List;
+import recipe.entity.Recipe;
+
+public record GetAllRecipeResponse(List<Recipe> recipes) {
 }
