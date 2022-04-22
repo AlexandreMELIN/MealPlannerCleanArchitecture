@@ -7,5 +7,6 @@ public enum IngredientType {
     DRINK,
     OIL,
     CONDIMENT,
-    SPICE
+    SPICE,
+    CONFECTIONERY
 }
