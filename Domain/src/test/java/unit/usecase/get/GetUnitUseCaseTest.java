@@ -13,7 +13,7 @@ class GetUnitUseCaseTest implements UnitGet, GetUnitPresenter {
     @Override
     public Unit getUnit(String shortName) {
         if (shortName.equals("L")) {
-            return new Unit("Litre", "L");
+            return Unit.LITER;
         }
         return null;
     }
@@ -26,8 +26,8 @@ class GetUnitUseCaseTest implements UnitGet, GetUnitPresenter {
     @Test
     void shouldGetUnit() {
         var unit = this.getUnit("L");
-        assertThat(unit.shortName(), equalTo("L"));
-        assertThat(unit.name(), equalTo("Litre"));
+        assertThat(unit.getShortName(), equalTo("L"));
+        assertThat(unit.getName(), equalTo("Liter"));
     }
 
     @Test

@@ -21,7 +21,7 @@ class GetAllUnitsUseCaseTest implements UnitGetAll, GetAllUnitsPresenter {
 
   @Override
   public List<Unit> getAllUnits() {
-    return List.of(new Unit("Litre", "L"), new Unit("Gramme", "g"));
+    return List.of(Unit.LITER, Unit.GRAM);
   }
 
   @Override
