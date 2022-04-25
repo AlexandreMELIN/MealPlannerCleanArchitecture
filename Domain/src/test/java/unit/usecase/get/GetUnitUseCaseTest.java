@@ -10,6 +10,8 @@ import static org.hamcrest.Matchers.*;
 
 class GetUnitUseCaseTest implements UnitGet, GetUnitPresenter {
 
+    private Unit unit;
+
     @Override
     public Unit getUnit(String shortName) {
         if (shortName.equals("L")) {
@@ -20,12 +22,13 @@ class GetUnitUseCaseTest implements UnitGet, GetUnitPresenter {
 
     @Override
     public void present(GetUnitResponse response) {
-
+        this.unit = response.unit();
     }
 
     @Test
     void shouldGetUnit() {
-        var unit = this.getUnit("L");
+        var useCase = new GetUnitUseCase(this);
+        useCase.execute(new GetUnitRequest("L"), this);
         assertThat(unit.getShortName(), equalTo("L"));
         assertThat(unit.getName(), equalTo("Liter"));
     }
