@@ -1,5 +1,8 @@
 package recipe.port;
 
+import java.util.UUID;
+
 public interface RecipePresenceChecker {
-    boolean aRecipeWithThisNameAlreadyExists(String recipeName);
+    boolean exists(UUID recipeUUID);
+
 }

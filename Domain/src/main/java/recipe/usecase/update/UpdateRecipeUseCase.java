@@ -16,10 +16,10 @@ public class UpdateRecipeUseCase {
     }
 
     public void execute(UpdateRecipeRequest request, UpdateRecipePresenter presenter) throws IllegalArgumentException {
-        if (!presenceChecker.aRecipeWithThisNameAlreadyExists(request.oldRecipeName())) {
-            throw new IllegalArgumentException(String.format("A recipe with the name %s must be present to be updated", request.oldRecipeName()));
+        if (!presenceChecker.exists(request.recipeUUID())) {
+            throw new IllegalArgumentException(String.format("A recipe with the uuid %s must be present to be updated", request.recipeUUID()));
         }
-        var updatedRecipe = updater.update(request.oldRecipeName(), request.recipeUpdated());
+        var updatedRecipe = updater.update(request.recipeUUID(), request.recipeUpdated());
         presenter.present(new UpdateRecipeResponse(updatedRecipe));
     }
 }
